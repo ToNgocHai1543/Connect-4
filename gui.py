@@ -5,6 +5,9 @@ from constants import *
 from offline_mode.two_player import *
 from offline_mode.ai_player import play_with_ai
 from online_mode.server import *
+import os
+
+# IMG_DIR = os.path.join(os.path.dirname("C:\\UET\\2nd_Semeter_2\\AI\\Connect-4\\img\\back_ground.jpg"), "img")
 
 def draw_text(text, font, color, surface, x, y):
     textobj = font.render(text, True, color)
@@ -13,6 +16,10 @@ def draw_text(text, font, color, surface, x, y):
     surface.blit(textobj, textrect)
 
 def main_menu(screen):
+
+    # background = pygame.image.load(os.path.join(IMG_DIR, "background.png"))
+    # screen.blit(background, (0, 0))
+    
     font = pygame.font.SysFont(FONT_NAME, 40)
     while True:
         screen.fill(WHITE)
@@ -20,13 +27,13 @@ def main_menu(screen):
 
         mx, my = pygame.mouse.get_pos()
 
-        button_offline = pygame.Rect(WIDTH // 2 - 100, 200, 300, 50)
+        button_offline = pygame.Rect(WIDTH // 2 - 150, 200, 300, 50)
         pygame.draw.rect(screen, BLUE, button_offline)
-        draw_text("Play Offline", font, WHITE, screen, WIDTH // 2 - 100, 210)
+        draw_text("Play Offline", font, WHITE, screen, WIDTH // 2 - 150, 210)
 
-        button_online = pygame.Rect(WIDTH // 2 - 100, 300, 300, 50)
+        button_online = pygame.Rect(WIDTH // 2 - 150, 300, 300, 50)
         pygame.draw.rect(screen, BLUE, button_online)
-        draw_text("Play Online", font, WHITE, screen, WIDTH // 2 - 100, 310)
+        draw_text("Play Online", font, WHITE, screen, WIDTH // 2 - 150, 310)
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:

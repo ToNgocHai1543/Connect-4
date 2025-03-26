@@ -156,6 +156,7 @@ class Connect4Server:
             if winning_move(self.board, player_id):
                 self.game_over = True
                 self.draw_text(f"Player {player_id} wins!", RED, WIDTH // 2 - 100, 10)
+                print("Player {player_id} wins!")
                 self.notify_all(f"win:{player_id}")
                 return True
                 
